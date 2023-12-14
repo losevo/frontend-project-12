@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import MainPage from './components/MainPage';
+import MainPage from './components/Chat/MainPage';
 import LoginForm from './components/LoginForm';
 import NotFound from './components/NotFound';
 

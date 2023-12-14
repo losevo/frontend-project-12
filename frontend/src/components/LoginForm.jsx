@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NavBar from './NavBar';
+import NavBar from './NavBar.jsx';
 import AutorizatedForm from './AutorizatedForm';
 
 const LoginForm = () => (
