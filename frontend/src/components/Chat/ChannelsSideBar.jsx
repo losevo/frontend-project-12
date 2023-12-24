@@ -1,5 +1,7 @@
 import React from 'react';
 
+// todo: #11 Добавить смену активного канала
+
 const Channel = (dataChannels) => {
   const { channels, currentChannelId } = dataChannels;
   if (channels.length === 0) {
@@ -24,7 +26,6 @@ const Channel = (dataChannels) => {
 
 const ChannelsSideBar = (data) => {
   const { channels, currentChannelId } = data;
-  console.log(channels);
   return (
     <div className="col-4 col-md-2 border-end px-0 bg-light flex-column h-100 d-flex">
       <div className="d-flex mt-1 justify-content-between mb-2 pe-2 p-4">

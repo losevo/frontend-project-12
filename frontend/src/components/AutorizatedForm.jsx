@@ -28,6 +28,8 @@ const AutorizatedForm = () => {
       axios.post(routes.loginPath(), { username, password })
         .then((response) => {
           localStorage.userId = JSON.stringify({ token: response.data.token });
+          localStorage.user = username;
+          console.log(localStorage);
           auth.loggedIn = true;
           navigate('/');
         })

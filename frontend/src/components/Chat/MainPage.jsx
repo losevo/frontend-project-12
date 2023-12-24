@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +8,7 @@ import ChannelsSideBar from './ChannelsSideBar.jsx';
 import getAuthHeader from '../../scripts/getAuthHeader.js';
 import getData from '../../scripts/getData.js';
 import NavBar from '../NavBar.jsx';
-import { initialData } from '../../slices/messageSlice.js';
+import { initialData, connect } from '../../slices/messageSlice.js';
 
 // todo: #5 Убрать двойной рендер
 // todo: #9 Обработать ошибку 401 при прогрузке страницы. Чтобы она ничего не выдавала
@@ -17,7 +18,7 @@ const MainPage = () => {
   const header = getAuthHeader();
   const messages = useSelector((state) => state.message);
   const dispatch = useDispatch();
-  const { channels, currentChannelId } = messages;
+  const { channels, currentChannelId, loading } = messages;
 
   const data = async (dispatches) => {
     const datas = await getData();
@@ -29,7 +30,12 @@ const MainPage = () => {
       navigate('/login');
     }
     data(dispatch);
+    dispatch(connect());
   }, []);
+
+  useEffect(() => {
+    data(dispatch);
+  }, [loading]);
 
   console.log(messages);
 
